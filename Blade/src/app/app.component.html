@@ -1,0 +1,63 @@
+<mat-drawer-container class="example-container" fullscreen>
+  <mat-drawer mode="side" opened>Drawer content
+  		
+<div cdkDropListGroup>
+  <div class="example-container1">
+    <h2>To do</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+  <div class="example-container1">
+    <h2>Done</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+  <button mat-button  cdkDrag cdkDragBoundary=".example-boundary">icon</button>
+</div>
+<!--<div class="example-container1">
+  <h2>Done</h2>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+  </div>
+</div>
+-->
+
+  </mat-drawer>
+<mat-drawer-content dropContainer >
+  <div class="example-boundary"  >
+  <div class="example-box"      
+        cdkDragBoundary=".example-boundary"  cdkDrag    >
+    I can only be dragged within the dotted container
+  </div>
+  <mat-toolbar color="primary" cdkDrag cdkDragBoundary=".example-boundary">
+  <mat-toolbar-row >
+    <span>Custom Toolbar</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<button mat-button  cdkDrag >Click me!</button>
+</div>
+
+
+  </mat-drawer-content>
+</mat-drawer-container>
